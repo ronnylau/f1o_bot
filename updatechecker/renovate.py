@@ -137,9 +137,7 @@ class Renovate:
                 "titleId": titleId,
                 "platformLogo": "https://i.imgur.com/ccNqLcb.png",
                 "thumbnail": data["metadata"]["icon"],
-                "image": None
-                if not (background := data["metadata"]["background"])
-                else background,
+                "image": None,
                 "pastVersion": f"`{past}`",
                 "currentVersion": f"`{current}`",
             },
