@@ -8,7 +8,7 @@ from discord.ext import tasks
 import logging
 import time
 
-from config import PREFIX, VERSION
+from f1o.config import PREFIX, VERSION
 from f1o import util
 from updatechecker.renovate import Renovate
 from util import check_f1owebite_status
