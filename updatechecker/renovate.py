@@ -122,7 +122,7 @@ class Renovate:
         elif past == current:
             logger.warning(f"Orbis title {name} not updated ({current})")
 
-            #return
+            return
 
         logger.warning(f"Orbis title {name} updated, {past} -> {current}")
 
@@ -162,6 +162,7 @@ class Renovate:
             "embeds": [
                 {
                     "title": data["name"],
+                    "description": "Es gibt ein Update zu F1 22!",
                     "url": data.get("url"),
                     "timestamp": datetime.utcnow().isoformat()
                     if (timestamp := data.get("timestamp")) is None
