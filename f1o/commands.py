@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 target = None
 
 intents = discord.Intents.default()
-intents.message_content = True
 intents.messages = True
 intents.members = True
 
