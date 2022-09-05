@@ -9,9 +9,9 @@ import logging
 import time
 
 from f1o.config import PREFIX, VERSION
-from f1o import util
+import f1o.util
 from updatechecker.renovate import Renovate
-from util import check_f1owebite_status
+
 
 logger = logging.getLogger(__name__)
 
