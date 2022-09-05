@@ -127,6 +127,7 @@ class Renovate:
         logger.warning(f"Orbis title {name} updated, {past} -> {current}")
 
         success: bool = Renovate.Notify(
+
             self,
             {
                 "name": name,
@@ -135,7 +136,7 @@ class Renovate:
                 "region": data["metadata"]["region"],
                 "titleId": titleId,
                 "platformLogo": "https://i.imgur.com/ccNqLcb.png",
-                "thumbnail": None if not (icon := data["metadata"]["icon"]) else icon,
+                "thumbnail": data["metadata"]["icon"],
                 "image": None
                 if not (background := data["metadata"]["background"])
                 else background,
