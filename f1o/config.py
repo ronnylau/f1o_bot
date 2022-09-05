@@ -5,7 +5,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 # define version
-VERSION = "0.1"
+VERSION = "0.2"
 
 # Root directory of the bot
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
