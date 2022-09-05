@@ -21,7 +21,6 @@ target = None
 intents = discord.Intents.default()
 intents.messages = True
 intents.members = True
-intents.message_content = True
 
 # Prefix includes the config symbol and the 'f1' name with hard-coded space
 bot = commands.Bot(
