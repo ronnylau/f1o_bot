@@ -163,9 +163,7 @@ class Renovate:
                     "title": data["name"],
                     "description": "Es gibt ein Update zu F1 22!",
                     "url": data.get("url"),
-                    "timestamp": datetime.utcnow().isoformat()
-                    if (timestamp := data.get("timestamp")) is None
-                    else timestamp,
+                    "timestamp": datetime.utcnow().isoformat(),
                     "color": int(data["platformColor"], base=16),
                     "footer": {
                         "text": titleId if region is None else f"({region}) {titleId}",
