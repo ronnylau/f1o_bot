@@ -1,0 +1,19 @@
+{
+    "logging": {
+        "severity": "DEBUG",
+        "discord": {
+            "enable": false,
+            "severity": "WARNING",
+            "webhookUrl": "https://discord.com/api/webhooks/XXXXX/XXXXX"
+        }
+    },
+    "discord": {
+        "username": "F1O_PS",
+        "webhookUrl": "https://discord.com/api/webhooks/1016355245388992612/I2B6fNyrZLdsGdghGCV4_HETXG-RSSlxB2CKz8YFByDGONhAyg5ebf64y5gC8X0-cYBq"
+    },
+    "titles": {
+        "orbis": [
+            "CUSA29431"
+        ]
+    }
+}

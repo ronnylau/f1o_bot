@@ -1,2 +1,6 @@
 /config.ini
 *.pyc
+updatechecker/config.json
+updatechecker/config.json
+updatechecker/history.json
+history.json

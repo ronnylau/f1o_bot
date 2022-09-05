@@ -3,10 +3,15 @@ import asyncio
 import discord
 from discord import Activity, ActivityType, Embed, Colour
 from discord.ext import commands
+from discord.ext import tasks
+
 import logging
 import time
 
 from config import PREFIX, VERSION
+from f1o import util
+from updatechecker.renovate import Renovate
+from util import check_f1owebite_status
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +21,7 @@ target = None
 intents = discord.Intents.default()
 intents.messages = True
 intents.members = True
+intents.message_content = True
 
 # Prefix includes the config symbol and the 'f1' name with hard-coded space
 bot = commands.Bot(
@@ -29,6 +35,7 @@ async def on_ready():
     logger.info('Bot ready...')
     job = Activity(name=bot.command_prefix, type=ActivityType.watching)
     await bot.change_presence(activity=job)
+    check_f1_updates.start()
 
 @bot.event
 async def on_command_completion(ctx):
@@ -66,6 +73,12 @@ async def status(ctx, *args):
     else:
         ws_conn = "```yaml\nOpen\n```"
 
+    f1o_website_status = await check_f1owebite_status()
+    if f1o_website_status == 200:
+        f1o_status = "```yaml\nOnline\n```"
+    else:
+        f1o_status = "```glsl\nOffline\n```"
+
     embed = Embed(
         title=f"Status - {app_info.name}",
         description=f"{app_info.description}",
@@ -80,4 +93,12 @@ async def status(ctx, *args):
         value=ws_conn,
         inline=True
     )
+    embed.add_field(name='F1O Website', value=f'{f1o_status}', inline=True)
     await ctx.send(embed=embed)
+
+
+# Loop commands group
+@tasks.loop(seconds=300)
+async def check_f1_updates():
+    logger.warning('Loop F1 Updates')
+    Renovate.Initialize(Renovate)
