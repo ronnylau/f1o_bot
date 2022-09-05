@@ -190,11 +190,6 @@ class Renovate:
             ],
         }
 
-        if (build := data.get("build")) is not None:
-            payload["embeds"][0]["fields"].append(
-                {"name": "Build Name", "value": f"`{build}`"}
-            )
-
         return Utility.POST(self, settings["webhookUrl"], payload)
 
     def SaveHistory(self: Any) -> None:
