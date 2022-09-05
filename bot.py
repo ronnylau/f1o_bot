@@ -3,9 +3,9 @@
 
 import logging
 import os
+import commands
 
 logger = logging.getLogger(__name__)
 logger.warning('Starting bot...')
-
 
 commands.bot.run(os.getenv('BOT_TOKEN'))
