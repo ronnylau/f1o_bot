@@ -72,7 +72,7 @@ async def status(ctx, *args):
     else:
         ws_conn = "```yaml\nOpen\n```"
 
-    f1o_website_status = await check_f1owebite_status()
+    f1o_website_status = await f1o.check_f1owebite_status()
     if f1o_website_status == 200:
         f1o_status = "```yaml\nOnline\n```"
     else:
