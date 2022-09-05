@@ -9,7 +9,7 @@ import logging
 import time
 
 from f1o.config import PREFIX, VERSION
-import f1o.util
+from f1o.util import check_f1owebite_status
 from updatechecker.renovate import Renovate
 
 
@@ -72,7 +72,7 @@ async def status(ctx, *args):
     else:
         ws_conn = "```yaml\nOpen\n```"
 
-    f1o_website_status = await f1o.check_f1owebite_status()
+    f1o_website_status = await check_f1owebite_status()
     if f1o_website_status == 200:
         f1o_status = "```yaml\nOnline\n```"
     else:
