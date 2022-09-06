@@ -5,7 +5,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 # define version
-VERSION = "0.2"
+VERSION = "0.3"
+
+# DEV or LIVE
+STAGE = 'DEV'
 
 # Root directory of the bot
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
